@@ -133,10 +133,24 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
 .warn{background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:14px 18px;font-size:12.5px;color:#92400e;line-height:1.6;margin-bottom:24px;display:flex;gap:12px}
 .warn i{color:#f59e0b;font-size:15px;flex-shrink:0;margin-top:1px}
 
+.vs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;margin-top:16px}
+.vs-card{background:#fff;border-radius:14px;padding:24px 22px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-top:4px solid var(--jc);display:flex;flex-direction:column}
+.vs-card.vs-darka{border-top-color:#1e40af}
+.vs-card.vs-lotus{border-top-color:#059669}
+.vs-card.vs-foggi{border-top-color:#dc2626}
+.vs-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--g500);margin-bottom:10px}
+.vs-card.vs-darka .vs-tag{color:#1e40af}
+.vs-card.vs-lotus .vs-tag{color:#059669}
+.vs-card.vs-foggi .vs-tag{color:#dc2626}
+.vs-card h4{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:12px;line-height:1.35}
+.vs-card p{font-size:13px;color:var(--g700);line-height:1.6;margin-bottom:14px;flex:1}
+.vs-card-result{background:var(--g100);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--g700);line-height:1.5}
+.vs-card-result strong{color:var(--g900);font-weight:800}
+
 @media (max-width: 820px){
   .rh,.ph,.mn{padding:32px 24px}
   .ph{grid-template-columns:1fr}
-  .cgrid,.swot,.opp-grid{grid-template-columns:1fr}
+  .cgrid,.swot,.opp-grid,.vs-grid{grid-template-columns:1fr}
   .cch{flex-direction:column;align-items:flex-start}
   .cch-r{text-align:left}
   .ph::after{font-size:48px}
@@ -566,14 +580,14 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
 <div class="sh">
   <div class="si"><i class="fa-solid fa-chart-line"></i></div>
   <div>
-    <h2>Posicionamento Digital — Automotivo</h2>
-    <p>Como a Darka anuncia hoje e onde a Tekno Cores pode entrar pra atrair mais clientes</p>
+    <h2>Posicionamento Digital dos Concorrentes Diretos</h2>
+    <p>Como cada concorrente anuncia hoje em Google e Instagram/Facebook — e onde a Tekno Cores pode entrar pra atrair mais clientes do automotivo</p>
   </div>
 </div>
 
 <div class="warn">
   <i class="fa-solid fa-circle-info"></i>
-  <div>Leitura inferida a partir da estrutura e comunicação da Darka. Recomendamos validar com 5 a 10 prints de anúncios automotivos ativos antes da decisão de investimento.</div>
+  <div>Leitura inferida a partir da estrutura, site e canais públicos de cada concorrente. Recomendamos validar com 5 a 10 prints de anúncios ativos de cada um (Meta Ads Library + Google Ads Transparency) antes da decisão de investimento.</div>
 </div>
 
 <div class="dposit">
@@ -595,6 +609,44 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
   <p style="margin-top:16px"><strong>Tradução:</strong> a Darka briga por todo mundo que pinta qualquer coisa em Curitiba. O profissional do automotivo vê a Darka como "a loja onde dá pra comprar tinta" — não como "a loja que entende do meu trabalho". Esse é exatamente o espaço onde a Tekno Cores pode entrar.</p>
 </div>
 
+<div class="dposit">
+  <h3>Como a Lotus Tintas se posiciona em anúncios</h3>
+  <p>A Lotus joga como <strong>especialista em estética e repintura automotiva</strong>, com +20 anos de mercado e a linha Vonixx puxando o feed. A comunicação dela puxa quatro ângulos:</p>
+  <ul class="tags">
+    <li>✨ Estética automotiva (Vonixx)</li>
+    <li>⏳ Tradição (+20 anos)</li>
+    <li>🛒 Loja virtual com parcelamento</li>
+    <li>📱 Atendimento direto via WhatsApp</li>
+  </ul>
+  <h3 style="margin-top:22px">O que falta na comunicação da Lotus</h3>
+  <ul class="miss">
+    <li>Apenas 2 lojas em Curitiba — sem capilaridade na RMC</li>
+    <li>Mix mistura automotivo + estética + látex residencial (mensagem diluída)</li>
+    <li>Não cobre tinta industrial</li>
+    <li>Pouco conteúdo técnico em vídeo</li>
+  </ul>
+  <p style="margin-top:16px"><strong>Tradução:</strong> a Lotus é o concorrente de DNA mais próximo — vende a <em>mesma Sikkens</em> que a Tekno. A briga em mídia paga vai por preço, atendimento e disponibilidade. Mas a Lotus só tem 2 lojas e não cobre indústria, o que dá pra Tekno duas alavancas: capilaridade superior (5 lojas, RMC inclusa) e abertura de uma frente industrial que a Lotus não disputa.</p>
+</div>
+
+<div class="dposit">
+  <h3>Como a Foggiatto se posiciona em anúncios</h3>
+  <p>A Foggiatto comunica como <strong>braço varejo do Grupo Foggiatto</strong> (funilaria, mecânica, guincho 24h). A comunicação puxa quatro ângulos:</p>
+  <ul class="tags">
+    <li>🔧 Vínculo ao Grupo Foggiatto</li>
+    <li>🚗 Combo tintas + peças automotivas</li>
+    <li>🏭 Categoria "tintas industriais"</li>
+    <li>🛒 Vende também na Shopee</li>
+  </ul>
+  <h3 style="margin-top:22px">O que falta na comunicação da Foggiatto</h3>
+  <ul class="miss">
+    <li>Marcas comercializadas não são divulgadas publicamente</li>
+    <li>Site pobre em informação de mix e linhas técnicas</li>
+    <li>Identidade percebida como "loja do grupo" — limita imagem de especialista</li>
+    <li>Baixo investimento em comunicação digital de marca</li>
+  </ul>
+  <p style="margin-top:16px"><strong>Tradução:</strong> a Foggiatto é o gêmeo estrutural da Tekno (3 lojas, mesma região, mesmos segmentos), mas com identidade diluída pelo Grupo e baixo investimento em comunicação. É um concorrente vulnerável: a Tekno ganha percepção de especialista rápido só com criativo bem trabalhado e catálogo público claro. Funileiros que evitam comprar de "concorrente" (funilarias rivais ao Grupo Foggiatto) também viram audiência cativa.</p>
+</div>
+
 <!-- 7 OPORTUNIDADES -->
 <div class="sh" style="margin-top:36px">
   <div class="si"><i class="fa-solid fa-bullseye"></i></div>
@@ -608,7 +660,7 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
   <div class="opp-card">
     <div class="opp-num">1</div>
     <h4>Aparecer no Google quando o profissional procura sua marca</h4>
-    <p>Funileiros, pintores e oficinas pesquisam por marcas específicas: Sikkens, Skylack, Sagola. A Darka não compete por essas buscas porque não vende essas marcas.</p>
+    <p>Funileiros, pintores e oficinas pesquisam por marcas específicas: Sikkens, Skylack, Sagola. Darka e Foggiatto não disputam esse espaço — só a Tekno e a Lotus jogam aí. Com lances bem trabalhados e copy de especialista, a Tekno pode dominar essas buscas.</p>
     <div class="opp-result"><strong>Resultado:</strong> quando o cliente digitar "tinta Sikkens Curitiba", a Tekno é o primeiro resultado — com custo de clique baixo.</div>
   </div>
 
@@ -652,6 +704,38 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
     <h4>Cadastro de oficinas pra crescer a base profissional</h4>
     <p>Anúncio com formulário simples: "Cadastre sua oficina e receba condição especial + ficha técnica". Em 3 meses constrói uma base de centenas de profissionais ativos em Curitiba.</p>
     <div class="opp-result"><strong>Resultado:</strong> base própria que gera venda recorrente — sem depender de anúncio novo toda hora.</div>
+  </div>
+</div>
+
+<!-- VANTAGENS ESPECÍFICAS -->
+<div class="sh" style="margin-top:36px">
+  <div class="si"><i class="fa-solid fa-chess-knight"></i></div>
+  <div>
+    <h2>Vantagens específicas contra cada concorrente direto</h2>
+    <p>A carta única que a Tekno joga contra cada um — e que nenhum dos três consegue copiar facilmente</p>
+  </div>
+</div>
+
+<div class="vs-grid">
+  <div class="vs-card vs-darka">
+    <div class="vs-tag">VS Darka</div>
+    <h4>Especialização técnica em automotivo e industrial</h4>
+    <p>Darka vende tinta de tudo (residencial inclusa) e comunica sortimento + preço. A Tekno comunica foco: só automotivo e industrial. Em mídia paga, a Tekno ocupa termos de marca (Sikkens, Sagola, Skylack) que a Darka não disputa.</p>
+    <div class="vs-card-result"><strong>Carta:</strong> autoridade técnica + termos de marca exclusivos</div>
+  </div>
+
+  <div class="vs-card vs-lotus">
+    <div class="vs-tag">VS Lotus</div>
+    <h4>Capilaridade e frente industrial</h4>
+    <p>Lotus tem só 2 lojas em Curitiba e não cobre tinta industrial. A Tekno tem 5 lojas (Curitiba + Pinhais + SJP) e atende o cliente industrial. Em geo-targeting de anúncio e na busca local, a Tekno aparece em zonas e segmentos que a Lotus não alcança.</p>
+    <div class="vs-card-result"><strong>Carta:</strong> 5 lojas + audiência industrial</div>
+  </div>
+
+  <div class="vs-card vs-foggi">
+    <div class="vs-tag">VS Foggiatto</div>
+    <h4>Marca independente e comunicação digital sólida</h4>
+    <p>Foggiatto está vinculada ao Grupo (funilaria, mecânica) e investe pouco em comunicação. A Tekno pode ganhar percepção de especialista rápido — criativo profissional, catálogo público claro, conteúdo técnico em vídeo. Funileiros de concorrentes do Grupo Foggiatto preferem marca neutra.</p>
+    <div class="vs-card-result"><strong>Carta:</strong> identidade própria + criativo elevado</div>
   </div>
 </div>
 
