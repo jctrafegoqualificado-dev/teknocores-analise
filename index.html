@@ -112,10 +112,31 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
 .ft{background:var(--jc-dark);color:rgba(255,255,255,.4);text-align:center;font-size:11px;padding:24px;letter-spacing:1px}
 .ft span{color:var(--jc)}
 
+.opp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:32px;margin-top:16px}
+.opp-card{background:#fff;border-radius:14px;padding:26px 24px 22px;box-shadow:0 2px 12px rgba(0,0,0,.06);position:relative;border-top:4px solid var(--jc)}
+.opp-card .opp-num{position:absolute;top:-18px;left:24px;width:38px;height:38px;background:var(--jc);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;box-shadow:0 4px 12px rgba(26,26,255,.35)}
+.opp-card h4{font-size:15px;font-weight:800;color:var(--g900);margin:10px 0 12px;line-height:1.35}
+.opp-card p{font-size:13px;color:var(--g700);line-height:1.6;margin-bottom:14px}
+.opp-result{background:var(--jc-light);border-left:3px solid var(--jc);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--g700);line-height:1.55}
+.opp-result strong{color:var(--jc);font-weight:800}
+
+.dposit{background:#fff;border-radius:14px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:28px}
+.dposit h3{font-size:14px;font-weight:800;color:var(--g900);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.dposit p{font-size:13.5px;color:var(--g700);line-height:1.7;margin-bottom:14px}
+.dposit p:last-child{margin-bottom:0}
+.dposit ul.tags{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 8px}
+.dposit ul.tags li{background:var(--g100);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--g700)}
+.dposit ul.miss{list-style:none;padding:0;margin:8px 0}
+.dposit ul.miss li{font-size:13px;color:var(--g700);padding:6px 0 6px 24px;position:relative;line-height:1.55}
+.dposit ul.miss li::before{content:'✗';position:absolute;left:0;top:5px;color:var(--red);font-weight:900;font-size:14px}
+
+.warn{background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:14px 18px;font-size:12.5px;color:#92400e;line-height:1.6;margin-bottom:24px;display:flex;gap:12px}
+.warn i{color:#f59e0b;font-size:15px;flex-shrink:0;margin-top:1px}
+
 @media (max-width: 820px){
   .rh,.ph,.mn{padding:32px 24px}
   .ph{grid-template-columns:1fr}
-  .cgrid,.swot{grid-template-columns:1fr}
+  .cgrid,.swot,.opp-grid{grid-template-columns:1fr}
   .cch{flex-direction:column;align-items:flex-start}
   .cch-r{text-align:left}
   .ph::after{font-size:48px}
@@ -536,6 +557,137 @@ table.tt tr:nth-child(even) td{background:var(--g100)}
         <td><span class="b bp">Média</span> (escala, mas pouco técnica)</td>
         <td><span class="b bn">Alta</span> (mesma Sikkens)</td>
         <td><span class="b bn">Alta</span> (gêmeo estrutural)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- POSICIONAMENTO DIGITAL — AUTOMOTIVO -->
+<div class="sh">
+  <div class="si"><i class="fa-solid fa-chart-line"></i></div>
+  <div>
+    <h2>Posicionamento Digital — Automotivo</h2>
+    <p>Como a Darka anuncia hoje e onde a Tekno Cores pode entrar pra atrair mais clientes</p>
+  </div>
+</div>
+
+<div class="warn">
+  <i class="fa-solid fa-circle-info"></i>
+  <div>Leitura inferida a partir da estrutura e comunicação da Darka. Recomendamos validar com 5 a 10 prints de anúncios automotivos ativos antes da decisão de investimento.</div>
+</div>
+
+<div class="dposit">
+  <h3>Como a Darka se posiciona em anúncios (Google e Instagram/Facebook)</h3>
+  <p>A Darka anuncia como <strong>varejista grande de tinta em geral</strong>. A comunicação dela puxa sempre os mesmos quatro ângulos:</p>
+  <ul class="tags">
+    <li>💰 Preço e desconto</li>
+    <li>🚚 Frete e entrega rápida</li>
+    <li>📍 Cobertura (10 lojas em Curitiba)</li>
+    <li>🛒 Sortimento amplo (tudo para pintura)</li>
+  </ul>
+  <h3 style="margin-top:22px">O que falta na comunicação da Darka</h3>
+  <ul class="miss">
+    <li>Não destaca marca técnica de tinta automotiva (Sikkens, PPG, Lechler)</li>
+    <li>Não fala com funileiro ou pintor profissional pela linguagem dele</li>
+    <li>Não mostra autoridade técnica — é loja, não especialista</li>
+    <li>Trata automotivo como um departamento entre vários, não como foco</li>
+  </ul>
+  <p style="margin-top:16px"><strong>Tradução:</strong> a Darka briga por todo mundo que pinta qualquer coisa em Curitiba. O profissional do automotivo vê a Darka como "a loja onde dá pra comprar tinta" — não como "a loja que entende do meu trabalho". Esse é exatamente o espaço onde a Tekno Cores pode entrar.</p>
+</div>
+
+<!-- 7 OPORTUNIDADES -->
+<div class="sh" style="margin-top:36px">
+  <div class="si"><i class="fa-solid fa-bullseye"></i></div>
+  <div>
+    <h2>7 oportunidades para atrair mais clientes do automotivo</h2>
+    <p>O que pode ser feito em Google e Instagram/Facebook nos próximos 90 dias</p>
+  </div>
+</div>
+
+<div class="opp-grid">
+  <div class="opp-card">
+    <div class="opp-num">1</div>
+    <h4>Aparecer no Google quando o profissional procura sua marca</h4>
+    <p>Funileiros, pintores e oficinas pesquisam por marcas específicas: Sikkens, Skylack, Sagola. A Darka não compete por essas buscas porque não vende essas marcas.</p>
+    <div class="opp-result"><strong>Resultado:</strong> quando o cliente digitar "tinta Sikkens Curitiba", a Tekno é o primeiro resultado — com custo de clique baixo.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">2</div>
+    <h4>Anúncios direcionados pra quem realmente é cliente</h4>
+    <p>Mirar donos de oficina, funileiros, pintores autônomos e fãs de customização automotiva — num raio de 5&nbsp;km dos polos automotivos de Curitiba e região (Cidade Industrial, Capão Raso, Boqueirão, Pinhais, SJP).</p>
+    <div class="opp-result"><strong>Resultado:</strong> dinheiro do anúncio não se dilui em curioso — vai direto pra quem compra.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">3</div>
+    <h4>Vídeos curtos no Instagram e YouTube — autoridade técnica</h4>
+    <p>"Como diluir Sikkens Autobase", "Erro que todo funileiro comete na pintura", "Qual pistola Sagola escolher pra cada serviço". Tutorial técnico é o canal mais subaproveitado no segmento.</p>
+    <div class="opp-result"><strong>Resultado:</strong> a Tekno deixa de ser "uma loja" e vira a loja que ensina. Cliente fica fiel e indica.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">4</div>
+    <h4>Mostrar produtos da Tekno direto na busca do Google</h4>
+    <p>Quando alguém pesquisar um produto específico, o Google mostra foto, preço e a loja Tekno mais próxima. Cliente quer retirar hoje, não esperar a entrega de 24h da Darka.</p>
+    <div class="opp-result"><strong>Resultado:</strong> a vantagem das 5 lojas físicas vira argumento de venda direto no anúncio.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">5</div>
+    <h4>Posicionamento: especialista vs. supermercado</h4>
+    <p>"Tudo para pintura" (Darka) versus <strong>"Especialista em tinta automotiva e industrial"</strong> (Tekno). A Tekno não vence em tamanho — vence em ser referência. Referência custa menos pra construir do que competir em preço.</p>
+    <div class="opp-result"><strong>Resultado:</strong> mensagem única e clara em todos os anúncios, site e redes sociais.</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">6</div>
+    <h4>Reaparecer pra quem já demonstrou interesse</h4>
+    <p>Quem visita o site e não compra recebe o anúncio de novo nos próximos dias — no Instagram, Facebook e Google — com a mensagem certa pro produto que viu.</p>
+    <div class="opp-result"><strong>Resultado:</strong> custo baixo e taxa de retorno alta, porque já é público "morno".</div>
+  </div>
+
+  <div class="opp-card">
+    <div class="opp-num">7</div>
+    <h4>Cadastro de oficinas pra crescer a base profissional</h4>
+    <p>Anúncio com formulário simples: "Cadastre sua oficina e receba condição especial + ficha técnica". Em 3 meses constrói uma base de centenas de profissionais ativos em Curitiba.</p>
+    <div class="opp-result"><strong>Resultado:</strong> base própria que gera venda recorrente — sem depender de anúncio novo toda hora.</div>
+  </div>
+</div>
+
+<!-- RESUMO DA ESTRATÉGIA -->
+<div class="sh">
+  <div class="si"><i class="fa-solid fa-arrows-rotate"></i></div>
+  <div>
+    <h2>O que muda em 90 dias</h2>
+    <p>Antes e depois com essa estratégia em execução</p>
+  </div>
+</div>
+
+<div class="tw">
+  <table class="tt">
+    <thead>
+      <tr>
+        <th style="width:50%">Hoje (sem mídia paga focada)</th>
+        <th>Cenário em 90 dias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tekno depende de quem já conhece a marca</td>
+        <td>Tekno aparece pra quem ainda não conhece — mas é o cliente certo</td>
+      </tr>
+      <tr>
+        <td>Concorre passivamente com Darka</td>
+        <td>Posicionamento de especialista que a Darka não consegue copiar</td>
+      </tr>
+      <tr>
+        <td>Vendas vêm da loja física e da indicação</td>
+        <td>Loja física + indicação + canal digital ativo</td>
+      </tr>
+      <tr>
+        <td>Sem base de profissionais mapeada</td>
+        <td>Base própria de funilarias e oficinas em Curitiba e região</td>
       </tr>
     </tbody>
   </table>
