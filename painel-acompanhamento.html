@@ -41,6 +41,7 @@ body{
 }
 h1,h2,h3,.font-display{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em}
 a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;text-align:left}
 *:focus-visible{outline:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent);border-radius:8px}
 
 /* ===== NAV ===== */
@@ -62,6 +63,7 @@ a{color:inherit}
 }
 .hero-card h1{font-size:26px;font-weight:800;color:var(--fg)}
 .hero-card .sub{font-size:13px;color:var(--muted);margin-top:6px;font-weight:500}
+.hero-card .note{font-size:11.5px;color:var(--placeholder);margin-top:10px;font-weight:500;display:flex;align-items:center;gap:6px}
 .updated-pill{background:var(--bg);box-shadow:var(--sh-inset-sm);border-radius:9999px;padding:10px 18px;font-size:11.5px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap}
 .updated-pill i{color:var(--accent-secondary)}
 
@@ -164,25 +166,58 @@ a{color:inherit}
 .bloco-bar .fill{height:100%;border-radius:9999px;background:linear-gradient(90deg,var(--accent),var(--accent-light));transition:width .8s ease-out}
 .bloco.secondary .bloco-bar .fill{background:linear-gradient(90deg,var(--accent-secondary),#4fc9c3)}
 
+.recorrente-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px}
 .recorrente-tag{
   display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
-  color:var(--accent-secondary);background:var(--bg);box-shadow:var(--sh-inset-sm);padding:7px 14px;border-radius:9999px;margin-bottom:16px;
+  color:var(--accent-secondary);background:var(--bg);box-shadow:var(--sh-inset-sm);padding:7px 14px;border-radius:9999px;
 }
+.reset-cycle{
+  font-size:10.5px;font-weight:700;color:var(--muted);background:var(--bg);box-shadow:var(--sh-inset-sm);
+  padding:7px 14px;border-radius:9999px;display:inline-flex;align-items:center;gap:6px;transition:box-shadow .2s ease-out,color .2s ease-out;
+}
+.reset-cycle:hover{color:var(--fg);box-shadow:var(--sh-ext-sm)}
 
+/* ===== TASKS (interactive accordion) ===== */
 .tasks{list-style:none;padding:0}
-.tasks li{display:flex;align-items:center;gap:14px;padding:11px 6px;font-size:13.5px;color:var(--fg);font-weight:500;transition:transform .2s ease-out}
-.tasks li:hover{transform:translateX(2px)}
+.tasks li{padding:2px 4px;border-radius:14px;margin-bottom:2px}
+.task-row{display:flex;align-items:center;gap:14px;padding:9px 4px}
 .task-well{
   flex-shrink:0;width:26px;height:26px;border-radius:50%;box-shadow:var(--sh-inset-deep);
   display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;
+  transition:transform .2s ease-out,box-shadow .2s ease-out;
 }
+.task-well:hover{transform:scale(1.08)}
+.task-well:active{transform:scale(.92)}
 .task-well i{display:none}
 .tasks li.done .task-well{box-shadow:var(--sh-ext-sm);background:var(--accent-secondary);color:#fff}
 .tasks li.done .task-well i{display:inline}
 .tasks li.andamento .task-well{box-shadow:var(--sh-ext-sm);background:var(--accent-light)}
 .tasks li.andamento .task-well::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
+
+.task-toggle{
+  flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:6px 10px;border-radius:10px;transition:background .2s ease-out;min-height:36px;
+}
+.task-toggle:hover{background:rgba(163,177,198,.14)}
+.task-toggle .txt{font-size:13.5px;font-weight:500;color:var(--fg)}
 .tasks li.done .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(163,177,198,.7)}
 .tasks li.andamento .txt{font-weight:700;color:var(--fg)}
+.chev{font-size:11px;color:var(--placeholder);transition:transform .3s ease-out;flex-shrink:0}
+.tasks li.expanded .chev{transform:rotate(180deg);color:var(--accent)}
+
+.task-detail{max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease-out,opacity .3s ease-out;padding:0 10px 0 54px}
+.tasks li.expanded .task-detail{max-height:240px;opacity:1;padding:2px 10px 16px 54px}
+.task-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:14px;font-weight:500}
+.task-actions{display:flex;gap:8px;flex-wrap:wrap}
+.status-btn{
+  font-size:10.5px;font-weight:700;letter-spacing:.2px;padding:8px 14px;border-radius:9999px;
+  background:var(--bg);box-shadow:var(--sh-inset-sm);color:var(--muted);
+  transition:box-shadow .2s ease-out,color .2s ease-out,transform .2s ease-out,background .2s ease-out;
+}
+.status-btn:hover{transform:translateY(-1px)}
+.status-btn.is-active[data-status="done"]{box-shadow:var(--sh-ext-sm);background:var(--accent-secondary);color:#fff}
+.status-btn.is-active[data-status="andamento"]{box-shadow:var(--sh-ext-sm);background:var(--accent-light);color:#fff}
+.status-btn.is-active[data-status="pendente"]{box-shadow:var(--sh-ext-sm);color:var(--fg)}
 
 .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;padding-top:22px;font-size:11.5px;color:var(--muted);font-weight:500;position:relative}
 .legend::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px;box-shadow:var(--sh-inset-sm)}
@@ -205,6 +240,8 @@ a{color:inherit}
   .kpi-grid{grid-template-columns:1fr}
   .kc{flex-direction:column;text-align:center}
   .bloco-h{flex-wrap:wrap}
+  .task-detail{padding-left:10px}
+  .tasks li.expanded .task-detail{padding-left:10px}
 }
 </style>
 </head>
@@ -228,6 +265,7 @@ a{color:inherit}
   <div>
     <h1>Tekno Cores — Painel de Acompanhamento</h1>
     <div class="sub">Branding + Presença Digital · parceria com Atrair Clientes</div>
+    <div class="note"><i class="fa-solid fa-computer-mouse"></i> Clique numa tarefa pra ver a descrição e marcar o status — o progresso fica salvo neste navegador.</div>
   </div>
   <div class="updated-pill"><i class="fa-solid fa-circle-check"></i> Atualizado em 14/07/2026</div>
 </div>
@@ -360,9 +398,57 @@ a{color:inherit}
     </div>
     <div class="bloco-bar"><div class="fill" style="width:0%"></div></div>
     <ul class="tasks">
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Releitura da Logo — tipografia completa + formatos de aplicação (R$ 470)</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Produção de fotos profissionais dos produtos (R$ 350)</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Criação e organização do Catálogo WhatsApp nas 5 contas (R$ 500)</span></li>
+      <li class="pendente" data-id="a1">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Releitura da Logo — tipografia completa + formatos de aplicação (R$ 470)</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Documentação completa da tipografia da marca e criação dos formatos de aplicação (redes sociais, fachada, catálogo). Entregável final: um mini manual de uso da marca pra Tekno aplicar sozinha no dia a dia.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="a2">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Produção de fotos profissionais dos produtos (R$ 350)</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Sessão de fotos profissionais dos produtos da Tekno (embalagens, latas, linha automotiva e industrial), pra uso no Catálogo WhatsApp e na atualização do Google Meu Negócio das 5 lojas.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="a3">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Criação e organização do Catálogo WhatsApp nas 5 contas (R$ 500)</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Montagem do catálogo de produtos dentro do WhatsApp Business de cada uma das 5 lojas, com fotos, nome, descrição e preço — pra cliente ver o mix de produtos direto na conversa, sem precisar de site.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 
@@ -371,15 +457,114 @@ a{color:inherit}
       <div class="bt">Bloco B — Pacote GRS Mensal <span class="bw">R$ 2.150/mês · recorrente</span></div>
       <div class="bp"><span class="fp-txt">0 / 6</span></div>
     </div>
-    <span class="recorrente-tag"><i class="fa-solid fa-arrows-rotate"></i> Ciclo Mês 1</span>
+    <div class="recorrente-row">
+      <span class="recorrente-tag"><i class="fa-solid fa-arrows-rotate"></i> Ciclo Mês 1</span>
+      <button type="button" class="reset-cycle" id="reset-ciclo-b"><i class="fa-solid fa-rotate-left"></i> Reiniciar ciclo do mês</button>
+    </div>
     <div class="bloco-bar"><div class="fill" style="width:0%"></div></div>
     <ul class="tasks">
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Briefing de conteúdo do mês</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Criação de imagens e formatos específicos para anúncios</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Programação das 8 postagens de feed (2/semana)</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Programação dos 12 stories (3/semana)</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Captação dos 2 vídeos mensais</span></li>
-      <li class="pendente"><span class="task-well"><i class="fa-solid fa-check"></i></span><span class="txt">Edição e publicação dos vídeos</span></li>
+      <li class="pendente" data-id="b1">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Briefing de conteúdo do mês</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Reunião de alinhamento com a Atrair Clientes pra definir temas, datas e prioridades do conteúdo do mês — a base de tudo que vem a seguir no ciclo.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="b2">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Criação de imagens e formatos específicos para anúncios</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Produção das peças gráficas usadas nos posts e nos anúncios do mês, já dentro do padrão visual definido na releitura da logo (Bloco A).</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="b3">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Programação das 8 postagens de feed (2/semana)</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Agendamento de 2 posts por semana no feed do Instagram/Facebook, com legenda e CTA — 8 posts fechando o mês inteiro.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="b4">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Programação dos 12 stories (3/semana)</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Agendamento de 3 stories por semana com conteúdo de bastidor, produto e engajamento — mantém a marca presente no dia a dia do seguidor.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="b5">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Captação dos 2 vídeos mensais</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Gravação em loja com a equipe da Atrair Clientes. A captação é feita 1 vez e rende conteúdo pra 2 meses de publicação — por isso a visita presencial acontece com intervalo de 1 mês.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
+      <li class="pendente" data-id="b6">
+        <div class="task-row">
+          <button type="button" class="task-well" data-role="well" aria-label="Alternar conclusão da tarefa"><i class="fa-solid fa-check"></i></button>
+          <button type="button" class="task-toggle" data-role="toggle" aria-expanded="false">
+            <span class="txt">Edição e publicação dos vídeos</span>
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </button>
+        </div>
+        <div class="task-detail">
+          <p class="task-desc">Edição avançada do material captado e publicação programada ao longo do mês, distribuindo os 2 vídeos pra manter ritmo de postagem constante.</p>
+          <div class="task-actions">
+            <button type="button" class="status-btn" data-status="pendente">Pendente</button>
+            <button type="button" class="status-btn" data-status="andamento">Em andamento</button>
+            <button type="button" class="status-btn" data-status="done">Concluída</button>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 
@@ -399,13 +584,17 @@ a{color:inherit}
 
 <script>
 /*
-  Como atualizar este painel:
-  Troque a classe do <li> da tarefa concluída de "pendente" para "done"
-  (ou "andamento" se estiver em execução) e salve. Os anéis, barras e
-  contadores abaixo recalculam sozinhos ao abrir a página — não precisa
-  editar nenhum número manualmente.
+  Este painel é interativo:
+  - Clique no círculo à esquerda de uma tarefa pra marcar/desmarcar como concluída.
+  - Clique no texto da tarefa pra abrir a descrição e escolher Pendente/Em andamento/Concluída.
+  - O status fica salvo no localStorage deste navegador (por tarefa), então some se
+    o link for aberto em outro dispositivo/navegador — é uma ferramenta de trabalho,
+    não substitui a versão publicada. Pra tornar um estado "oficial" pra qualquer
+    visitante, edite a classe do <li> (pendente/andamento/done) no HTML e republique.
+  - "Reiniciar ciclo do mês" zera só as 6 tarefas do Bloco B (recorrente).
 */
 (function(){
+  var STORAGE_PREFIX = 'teknocores_painel_v1_';
   var RING_CIRC = 2 * Math.PI * 38; // r=38
 
   function setRing(id, pct){
@@ -414,6 +603,27 @@ a{color:inherit}
     var offset = RING_CIRC - (pct/100) * RING_CIRC;
     el.setAttribute('stroke-dasharray', RING_CIRC.toFixed(2));
     el.setAttribute('stroke-dashoffset', offset.toFixed(2));
+  }
+
+  function currentStatus(li){
+    if (li.classList.contains('done')) return 'done';
+    if (li.classList.contains('andamento')) return 'andamento';
+    return 'pendente';
+  }
+
+  function syncButtons(li){
+    var status = currentStatus(li);
+    li.querySelectorAll('.status-btn').forEach(function(b){
+      b.classList.toggle('is-active', b.dataset.status === status);
+    });
+  }
+
+  function applyStatus(li, status){
+    li.classList.remove('pendente','andamento','done');
+    li.classList.add(status);
+    localStorage.setItem(STORAGE_PREFIX + li.dataset.id, status);
+    syncButtons(li);
+    recalcAll();
   }
 
   function creditOf(li){
@@ -443,28 +653,81 @@ a{color:inherit}
     return { total: total, credit: credit, done: done, andamento: andamento, pendente: pendente, pct: pct };
   }
 
-  var blocos = document.querySelectorAll('#projeto .bloco');
-  var blocoA = calcBloco(blocos[0], 'a-ring', 'a-num', 'cmp-a-num', 'cmp-a-bar');
-  var blocoB = calcBloco(blocos[1], 'b-ring', 'b-num', 'cmp-b-num', 'cmp-b-bar');
+  function recalcAll(){
+    var blocos = document.querySelectorAll('#projeto .bloco');
+    var blocoA = calcBloco(blocos[0], 'a-ring', 'a-num', 'cmp-a-num', 'cmp-a-bar');
+    var blocoB = calcBloco(blocos[1], 'b-ring', 'b-num', 'cmp-b-num', 'cmp-b-bar');
 
-  var totalTasks = blocoA.total + blocoB.total;
-  var totalCredit = blocoA.credit + blocoB.credit;
-  var overall = totalTasks ? Math.round((totalCredit/totalTasks)*100) : 0;
-  document.getElementById('ov-num').textContent = overall;
-  document.getElementById('ov-pct-n').textContent = overall;
-  setRing('ov-ring', overall);
+    var totalTasks = blocoA.total + blocoB.total;
+    var totalCredit = blocoA.credit + blocoB.credit;
+    var overall = totalTasks ? Math.round((totalCredit/totalTasks)*100) : 0;
+    document.getElementById('ov-num').textContent = overall;
+    document.getElementById('ov-pct-n').textContent = overall;
+    setRing('ov-ring', overall);
 
-  var doneTasks = blocoA.done + blocoB.done;
-  var andTasks = blocoA.andamento + blocoB.andamento;
-  var pendTasks = blocoA.pendente + blocoB.pendente;
-  function pctOf(n){ return totalTasks ? (n/totalTasks*100) : 0; }
-  document.getElementById('stack-done').style.width = pctOf(doneTasks) + '%';
-  document.getElementById('stack-and').style.width = pctOf(andTasks) + '%';
-  document.getElementById('stack-pend').style.width = pctOf(pendTasks) + '%';
-  document.getElementById('cnt-done').textContent = doneTasks;
-  document.getElementById('cnt-and').textContent = andTasks;
-  document.getElementById('cnt-pend').textContent = pendTasks;
-  document.getElementById('cnt-total').textContent = totalTasks;
+    var doneTasks = blocoA.done + blocoB.done;
+    var andTasks = blocoA.andamento + blocoB.andamento;
+    var pendTasks = blocoA.pendente + blocoB.pendente;
+    function pctOf(n){ return totalTasks ? (n/totalTasks*100) : 0; }
+    document.getElementById('stack-done').style.width = pctOf(doneTasks) + '%';
+    document.getElementById('stack-and').style.width = pctOf(andTasks) + '%';
+    document.getElementById('stack-pend').style.width = pctOf(pendTasks) + '%';
+    document.getElementById('cnt-done').textContent = doneTasks;
+    document.getElementById('cnt-and').textContent = andTasks;
+    document.getElementById('cnt-pend').textContent = pendTasks;
+    document.getElementById('cnt-total').textContent = totalTasks;
+  }
+
+  function loadSaved(){
+    document.querySelectorAll('.tasks li[data-id]').forEach(function(li){
+      var saved = localStorage.getItem(STORAGE_PREFIX + li.dataset.id);
+      if (saved === 'done' || saved === 'andamento' || saved === 'pendente') {
+        li.classList.remove('pendente','andamento','done');
+        li.classList.add(saved);
+      }
+      syncButtons(li);
+    });
+  }
+
+  var projeto = document.getElementById('projeto');
+
+  projeto.addEventListener('click', function(e){
+    var wellBtn = e.target.closest('[data-role="well"]');
+    if (wellBtn) {
+      var li = wellBtn.closest('li');
+      applyStatus(li, currentStatus(li) === 'done' ? 'pendente' : 'done');
+      return;
+    }
+
+    var toggleBtn = e.target.closest('[data-role="toggle"]');
+    if (toggleBtn) {
+      var li2 = toggleBtn.closest('li');
+      var expanded = li2.classList.toggle('expanded');
+      toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      return;
+    }
+
+    var statusBtn = e.target.closest('.status-btn');
+    if (statusBtn) {
+      applyStatus(statusBtn.closest('li'), statusBtn.dataset.status);
+      return;
+    }
+  });
+
+  var resetBtn = document.getElementById('reset-ciclo-b');
+  resetBtn.addEventListener('click', function(){
+    if (!window.confirm('Reiniciar o ciclo do mês? As 6 tarefas do Bloco B voltam pra "pendente".')) return;
+    document.querySelectorAll('#projeto .bloco.secondary .tasks li[data-id]').forEach(function(li){
+      li.classList.remove('done','andamento','expanded');
+      li.classList.add('pendente');
+      localStorage.removeItem(STORAGE_PREFIX + li.dataset.id);
+      syncButtons(li);
+    });
+    recalcAll();
+  });
+
+  loadSaved();
+  recalcAll();
 })();
 </script>
 
