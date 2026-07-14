@@ -31,7 +31,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 .ntop-a.active,.ntop-a:hover{color:#fff}
 
 /* KPI RING ROW */
-.kpi{background:linear-gradient(135deg,var(--jc) 0%,var(--jc-mid) 100%);padding:44px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;overflow:hidden}
+.kpi{background:linear-gradient(135deg,var(--purple) 0%,#5b21b6 100%);padding:44px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;overflow:hidden}
 .kpi::after{content:'TEKNO CORES';position:absolute;bottom:-20px;right:40px;font-size:90px;font-weight:900;color:rgba(255,255,255,.04);letter-spacing:8px;white-space:nowrap;pointer-events:none}
 .kc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px 26px;position:relative;z-index:1;display:flex;align-items:center;gap:20px}
 .kc .ring-wrap{position:relative;width:88px;height:88px;flex-shrink:0}
@@ -44,20 +44,23 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 
 .mn{max-width:1140px;margin:0 auto;padding:44px 60px}
 
-.status-banner{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:40px}
+.status-banner{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:24px}
 .status-banner i{color:#f59e0b;font-size:18px;margin-top:1px}
 .status-banner strong{display:block;font-size:13px;color:var(--g900);margin-bottom:3px}
 .status-banner span{font-size:12.5px;color:var(--g700);line-height:1.6}
 
+.info-banner{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:40px}
+.info-banner i{color:var(--jc);font-size:18px;margin-top:1px}
+.info-banner strong{display:block;font-size:13px;color:var(--g900);margin-bottom:3px}
+.info-banner span{font-size:12.5px;color:var(--g700);line-height:1.6}
+
 .sh{display:flex;align-items:center;gap:14px;margin-bottom:22px;margin-top:44px}
 .sh:first-of-type{margin-top:0}
-.si{width:44px;height:44px;background:var(--jc);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}
-.si.purple{background:var(--purple)}
+.si{width:44px;height:44px;background:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}
 .sh h2{font-size:20px;font-weight:800;color:var(--g900)}
 .sh p{font-size:13px;color:var(--g500);margin-top:2px}
 .sh-pct{margin-left:auto;text-align:right;flex-shrink:0}
-.sh-pct .n{font-size:26px;font-weight:900;color:var(--jc)}
-.sh-pct.purple .n{color:var(--purple)}
+.sh-pct .n{font-size:26px;font-weight:900;color:var(--purple)}
 .sh-pct .l{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--g500);font-weight:700}
 
 /* VISAO GERAL — charts */
@@ -94,19 +97,6 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 .stack-total{margin-top:16px;font-size:12px;color:var(--g500);text-align:right}
 .stack-total strong{color:var(--g900);font-weight:800}
 
-/* TIMELINE STEPPER */
-.timeline{display:flex;align-items:flex-start;gap:0;margin-bottom:28px;overflow-x:auto;padding-bottom:4px}
-.tl-step{flex:1;min-width:110px;text-align:center;position:relative}
-.tl-step::before{content:'';position:absolute;top:15px;left:-50%;width:100%;height:2px;background:var(--g200);z-index:0}
-.tl-step:first-child::before{display:none}
-.tl-step.done::before{background:var(--good)}
-.tl-dot{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--g200);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;position:relative;z-index:1;font-size:12px;font-weight:900;color:var(--g500)}
-.tl-step.done .tl-dot{background:var(--good);border-color:var(--good);color:#fff}
-.tl-step.current .tl-dot{background:var(--jc);border-color:var(--jc);color:#fff;box-shadow:0 0 0 4px var(--jc-track)}
-.tl-label{font-size:11px;font-weight:800;color:var(--g900)}
-.tl-sub{font-size:10.5px;color:var(--g500);margin-top:2px}
-.tl-step.current .tl-label{color:var(--jc)}
-
 .frente{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,.06);margin-bottom:20px}
 
 .fase{margin-bottom:28px}
@@ -141,7 +131,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 .legend .ic.andamento{background:var(--warn)}
 .legend .ic.pendente{background:var(--pend)}
 
-.recorrente-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:#ede9fe;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.recorrente-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--jc);background:var(--jc-light);padding:5px 12px;border-radius:20px;margin-bottom:14px}
 
 .ft{background:var(--jc-dark);color:rgba(255,255,255,.4);text-align:center;font-size:11px;padding:24px;letter-spacing:1px}
 .ft span{color:var(--jc)}
@@ -191,33 +181,33 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     </div>
     <div class="kc-body">
       <div class="lbl">Progresso Geral</div>
-      <div class="dsc">Média das 2 frentes — site institucional e presença digital.</div>
+      <div class="dsc">Branding + Presença Digital — único projeto ativo no momento.</div>
     </div>
   </div>
   <div class="kc">
     <div class="ring-wrap">
       <svg viewBox="0 0 88 88">
         <circle class="ring-track" cx="44" cy="44" r="38"></circle>
-        <circle class="ring-fill" id="f1-ring" cx="44" cy="44" r="38" stroke-dasharray="238.76" stroke-dashoffset="238.76"></circle>
+        <circle class="ring-fill" id="a-ring" cx="44" cy="44" r="38" stroke-dasharray="238.76" stroke-dashoffset="238.76"></circle>
       </svg>
-      <div class="ring-pct"><span id="f1-num">0</span>%</div>
+      <div class="ring-pct"><span id="a-num">0</span>%</div>
     </div>
     <div class="kc-body">
-      <div class="lbl">Site + SEO</div>
-      <div class="dsc">JC Tráfego Qualificado · 3 fases · ~4 semanas · R$ 3.000</div>
+      <div class="lbl">Bloco A · Pontual</div>
+      <div class="dsc">Logo, catálogo WhatsApp e fotos · R$ 1.320 · pagamento único</div>
     </div>
   </div>
   <div class="kc">
     <div class="ring-wrap">
       <svg viewBox="0 0 88 88">
         <circle class="ring-track" cx="44" cy="44" r="38"></circle>
-        <circle class="ring-fill" id="f2-ring" cx="44" cy="44" r="38" stroke-dasharray="238.76" stroke-dashoffset="238.76"></circle>
+        <circle class="ring-fill" id="b-ring" cx="44" cy="44" r="38" stroke-dasharray="238.76" stroke-dashoffset="238.76"></circle>
       </svg>
-      <div class="ring-pct"><span id="f2-num">0</span>%</div>
+      <div class="ring-pct"><span id="b-num">0</span>%</div>
     </div>
     <div class="kc-body">
-      <div class="lbl">Branding + Redes</div>
-      <div class="dsc">Atrair Clientes (parceira) · pontual + mensal recorrente</div>
+      <div class="lbl">Bloco B · Mensal</div>
+      <div class="dsc">Pacote GRS · R$ 2.150/mês · ciclo recorrente</div>
     </div>
   </div>
 </div>
@@ -228,8 +218,16 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 <div class="status-banner">
   <i class="fa-solid fa-circle-info"></i>
   <div>
-    <strong>Status atual: propostas enviadas, aguardando aprovação</strong>
-    <span>As duas propostas comerciais (Site Institucional + SEO e Branding/Presença Digital) foram apresentadas à Tekno Cores em junho/2026. Este painel é atualizado a cada etapa concluída assim que o projeto for aprovado e iniciado.</span>
+    <strong>Site institucional não fechou — fora do escopo por ora</strong>
+    <span>A Tekno Cores optou por não seguir com a proposta de Site Institucional + SEO. O projeto ativo hoje é só a Frente de Branding + Presença Digital, com a parceira Atrair Clientes.</span>
+  </div>
+</div>
+
+<div class="info-banner">
+  <i class="fa-solid fa-hand"></i>
+  <div>
+    <strong>Sem tráfego pago no momento</strong>
+    <span>Também não há campanha de Meta/Google Ads em andamento ou planejada para esta fase. As recomendações da <a href="./fase3-grandes-ideais.html" style="color:var(--jc);font-weight:700">Fase 3 da análise de mercado</a> (conteúdo técnico, distribuidor autorizado, expansão regional) seguem válidas como norte estratégico, independente de mídia paga.</span>
   </div>
 </div>
 
@@ -238,33 +236,33 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
   <div class="si"><i class="fa-solid fa-chart-simple"></i></div>
   <div>
     <h2>Visão Geral</h2>
-    <p>As 2 frentes lado a lado e a distribuição de tarefas por status</p>
+    <p>Os 2 blocos do projeto de Branding + Redes lado a lado</p>
   </div>
 </div>
 
 <div class="chart-grid">
   <div class="chart-card">
-    <h3>Comparativo entre frentes</h3>
-    <div class="sub">Percentual concluído de cada frente do projeto</div>
+    <h3>Comparativo entre blocos</h3>
+    <div class="sub">Percentual concluído de cada bloco de trabalho</div>
     <div class="cmp-row">
       <div class="cmp-h">
-        <div class="name"><span class="dot blue"></span>Site + SEO</div>
-        <div class="val"><span id="cmp-f1-num">0</span>%</div>
+        <div class="name"><span class="dot purple"></span>Bloco A · Pontual</div>
+        <div class="val"><span id="cmp-a-num">0</span>%</div>
       </div>
-      <div class="cmp-track"><div class="cmp-fill blue" id="cmp-f1-bar" style="width:0%"></div></div>
+      <div class="cmp-track"><div class="cmp-fill purple" id="cmp-a-bar" style="width:0%"></div></div>
     </div>
     <div class="cmp-row">
       <div class="cmp-h">
-        <div class="name"><span class="dot purple"></span>Branding + Redes</div>
-        <div class="val"><span id="cmp-f2-num">0</span>%</div>
+        <div class="name"><span class="dot blue"></span>Bloco B · Mensal</div>
+        <div class="val"><span id="cmp-b-num">0</span>%</div>
       </div>
-      <div class="cmp-track"><div class="cmp-fill purple" id="cmp-f2-bar" style="width:0%"></div></div>
+      <div class="cmp-track"><div class="cmp-fill blue" id="cmp-b-bar" style="width:0%"></div></div>
     </div>
   </div>
 
   <div class="chart-card">
     <h3>Status das tarefas</h3>
-    <div class="sub">Distribuição de todas as tarefas do projeto (32 no total)</div>
+    <div class="sub">Distribuição de todas as tarefas do projeto (9 no total)</div>
     <div class="stack-bar">
       <div class="stack-seg done" id="stack-done" style="width:0%"></div>
       <div class="stack-seg andamento" id="stack-and" style="width:0%"></div>
@@ -273,124 +271,26 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     <div class="stack-legend">
       <div class="li"><span class="ic done"></span>Concluídas <span class="cnt" id="cnt-done">0</span></div>
       <div class="li"><span class="ic andamento"></span>Em andamento <span class="cnt" id="cnt-and">0</span></div>
-      <div class="li"><span class="ic pendente"></span>Pendentes <span class="cnt" id="cnt-pend">32</span></div>
+      <div class="li"><span class="ic pendente"></span>Pendentes <span class="cnt" id="cnt-pend">9</span></div>
     </div>
-    <div class="stack-total">Total de tarefas mapeadas: <strong id="cnt-total">32</strong></div>
+    <div class="stack-total">Total de tarefas mapeadas: <strong id="cnt-total">9</strong></div>
   </div>
 </div>
 
-<!-- FRENTE 1: SITE + SEO -->
+<!-- BRANDING + REDES -->
 <div class="sh">
-  <div class="si"><i class="fa-solid fa-globe"></i></div>
+  <div class="si"><i class="fa-solid fa-palette"></i></div>
   <div>
-    <h2>Frente 1 · Site Institucional + SEO</h2>
-    <p>JC Tráfego Qualificado · R$ 3.000 · prazo estimado de 4 semanas após briefing</p>
-  </div>
-  <div class="sh-pct">
-    <div class="n"><span id="f1-pct-n">0</span>%</div>
-    <div class="l">Concluído</div>
-  </div>
-</div>
-
-<div class="frente" id="frente-1">
-
-  <div class="timeline" id="tl-f1">
-    <div class="tl-step current" data-week="1">
-      <div class="tl-dot">1</div>
-      <div class="tl-label">Briefing</div>
-      <div class="tl-sub">Semana 1</div>
-    </div>
-    <div class="tl-step" data-week="2">
-      <div class="tl-dot">2</div>
-      <div class="tl-label">Design/Dev</div>
-      <div class="tl-sub">Semana 2</div>
-    </div>
-    <div class="tl-step" data-week="3">
-      <div class="tl-dot">3</div>
-      <div class="tl-label">Design/Dev</div>
-      <div class="tl-sub">Semana 3</div>
-    </div>
-    <div class="tl-step" data-week="4">
-      <div class="tl-dot">4</div>
-      <div class="tl-label">Publicação</div>
-      <div class="tl-sub">Semana 4</div>
-    </div>
-  </div>
-
-  <div class="fase" data-fase="Fase 1">
-    <div class="fase-h">
-      <div class="ft">Fase 1 — Briefing e Conteúdo <span class="fw">Semana 1</span></div>
-      <div class="fp"><span class="fp-txt">0 / 7</span></div>
-    </div>
-    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
-    <ul class="tasks">
-      <li class="pendente"><span class="ic"></span><span class="txt">Reunião de alinhamento com a Tekno Cores</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Confirmar aceite da proposta e 1º pagamento (50%)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Coletar textos institucionais (quem somos, diferenciais)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Coletar fotos das 5 lojas (fachada e interior)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Levantar dados completos das lojas (endereço, horário, telefone, WhatsApp)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Definir palavras-chave-alvo (Search + SEO local)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Aprovar arquitetura do site (~8 páginas)</span></li>
-    </ul>
-  </div>
-
-  <div class="fase" data-fase="Fase 2">
-    <div class="fase-h">
-      <div class="ft">Fase 2 — Design e Desenvolvimento <span class="fw">Semanas 2–3</span></div>
-      <div class="fp"><span class="fp-txt">0 / 8</span></div>
-    </div>
-    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
-    <ul class="tasks">
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir Home (posicionamento, marcas-âncora, WhatsApp fixo, seletor de loja)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas de Linhas de Produto (Pintura, Polimento, Abrasivos, Acessórios)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas de Soluções por Segmento (Oficinas/Funilarias, Indústria)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas das 5 Lojas (endereço, mapa, horário, Schema local)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir página de Marcas (Sikkens, Skylack, Sagola)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Construir página Sobre + Contato + FAQ técnico</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Escrever e publicar 2–3 artigos técnicos do blog</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Entregar versão para revisão da Tekno Cores</span></li>
-    </ul>
-  </div>
-
-  <div class="fase" data-fase="Fase 3">
-    <div class="fase-h">
-      <div class="ft">Fase 3 — Ajustes, Publicação e Treinamento <span class="fw">Semana 4</span></div>
-      <div class="fp"><span class="fp-txt">0 / 8</span></div>
-    </div>
-    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
-    <ul class="tasks">
-      <li class="pendente"><span class="ic"></span><span class="txt">Aplicar rodada de ajustes solicitados</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Publicar site no ar (domínio + hospedagem da Tekno)</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Configurar Google Search Console</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Configurar GA4 + pixel de tráfego pago</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Configurar SSL, sitemap.xml, robots.txt e dados estruturados</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Orientar integração do Google Perfil da Empresa das 5 lojas</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Treinamento de edição de conteúdo para a equipe Tekno</span></li>
-      <li class="pendente"><span class="ic"></span><span class="txt">Iniciar os 30 dias de suporte incluídos</span></li>
-    </ul>
-  </div>
-
-  <div class="legend">
-    <div class="li"><span class="ic done"></span> Concluído</div>
-    <div class="li"><span class="ic andamento"></span> Em andamento</div>
-    <div class="li"><span class="ic pendente"></span> Pendente</div>
-  </div>
-</div><!-- /frente-1 -->
-
-<!-- FRENTE 2: BRANDING + REDES -->
-<div class="sh">
-  <div class="si purple"><i class="fa-solid fa-palette"></i></div>
-  <div>
-    <h2>Frente 2 · Branding + Presença Digital</h2>
+    <h2>Branding + Presença Digital</h2>
     <p>Atrair Clientes (parceira) · serviços pontuais + pacote mensal recorrente</p>
   </div>
-  <div class="sh-pct purple">
-    <div class="n"><span id="f2-pct-n">0</span>%</div>
+  <div class="sh-pct">
+    <div class="n"><span id="ov-pct-n">0</span>%</div>
     <div class="l">Concluído</div>
   </div>
 </div>
 
-<div class="frente" id="frente-2">
+<div class="frente" id="projeto">
 
   <div class="fase purple" data-fase="Bloco A">
     <div class="fase-h">
@@ -405,7 +305,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     </ul>
   </div>
 
-  <div class="fase purple" data-fase="Bloco B">
+  <div class="fase" data-fase="Bloco B">
     <div class="fase-h">
       <div class="ft">Bloco B — Pacote GRS Mensal <span class="fw">R$ 2.150/mês · recorrente</span></div>
       <div class="fp"><span class="fp-txt">0 / 6</span></div>
@@ -427,7 +327,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     <div class="li"><span class="ic andamento"></span> Em andamento</div>
     <div class="li"><span class="ic pendente"></span> Pendente</div>
   </div>
-</div><!-- /frente-2 -->
+</div><!-- /projeto -->
 
 </div>
 
@@ -439,11 +339,10 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 <script>
 /*
   Como atualizar este painel:
-  1) Tarefas: troque a classe do <li> de "pendente" para "done" (ou "andamento").
-  2) Linha do tempo da Frente 1: mova a classe "current" pro <div class="tl-step">
-     da semana atual, e adicione "done" nos steps já passados.
-  Todos os números, anéis, barras e gráficos abaixo recalculam sozinhos ao abrir
-  a página — não precisa editar nenhum percentual manualmente.
+  Troque a classe do <li> da tarefa concluída de "pendente" para "done"
+  (ou "andamento" se estiver em execução) e salve. Os anéis, barras e
+  contadores abaixo recalculam sozinhos ao abrir a página — não precisa
+  editar nenhum número manualmente.
 */
 (function(){
   var RING_CIRC = 2 * Math.PI * 38; // r=38
@@ -462,7 +361,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     return 0;
   }
 
-  function calcFase(faseEl){
+  function calcFase(faseEl, ringId, numId, cmpNumId, cmpBarId){
     var lis = faseEl.querySelectorAll('.tasks li');
     var total = lis.length, credit = 0, done = 0, andamento = 0, pendente = 0;
     lis.forEach(function(li){
@@ -476,45 +375,27 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
     if (fill) fill.style.width = pct + '%';
     var fpTxt = faseEl.querySelector('.fp-txt');
     if (fpTxt) fpTxt.textContent = done + ' / ' + total;
-    return { total: total, credit: credit, done: done, andamento: andamento, pendente: pendente };
+    if (ringId) setRing(ringId, pct);
+    if (numId) document.getElementById(numId).textContent = pct;
+    if (cmpNumId) document.getElementById(cmpNumId).textContent = pct;
+    if (cmpBarId) document.getElementById(cmpBarId).style.width = pct + '%';
+    return { total: total, credit: credit, done: done, andamento: andamento, pendente: pendente, pct: pct };
   }
 
-  function calcFrente(frenteId, numElId, ringId, pctNElId, cmpNumId, cmpBarId){
-    var frenteEl = document.getElementById(frenteId);
-    var totals = { total: 0, credit: 0, done: 0, andamento: 0, pendente: 0 };
-    if (!frenteEl) return totals;
-    var fases = frenteEl.querySelectorAll('.fase');
-    fases.forEach(function(faseEl){
-      var r = calcFase(faseEl);
-      totals.total += r.total; totals.credit += r.credit;
-      totals.done += r.done; totals.andamento += r.andamento; totals.pendente += r.pendente;
-    });
-    var pct = totals.total ? Math.round((totals.credit/totals.total)*100) : 0;
-    var numEl = document.getElementById(numElId);
-    var pctNEl = document.getElementById(pctNElId);
-    var cmpNumEl = document.getElementById(cmpNumId);
-    var cmpBarEl = document.getElementById(cmpBarId);
-    if (numEl) numEl.textContent = pct;
-    if (pctNEl) pctNEl.textContent = pct;
-    if (cmpNumEl) cmpNumEl.textContent = pct;
-    if (cmpBarEl) cmpBarEl.style.width = pct + '%';
-    setRing(ringId, pct);
-    totals.pct = pct;
-    return totals;
-  }
+  var fases = document.querySelectorAll('#projeto .fase');
+  var blocoA = calcFase(fases[0], 'a-ring', 'a-num', 'cmp-a-num', 'cmp-a-bar');
+  var blocoB = calcFase(fases[1], 'b-ring', 'b-num', 'cmp-b-num', 'cmp-b-bar');
 
-  var t1 = calcFrente('frente-1', 'f1-num', 'f1-ring', 'f1-pct-n', 'cmp-f1-num', 'cmp-f1-bar');
-  var t2 = calcFrente('frente-2', 'f2-num', 'f2-ring', 'f2-pct-n', 'cmp-f2-num', 'cmp-f2-bar');
-
-  var overall = Math.round((t1.pct + t2.pct) / 2);
+  var totalTasks = blocoA.total + blocoB.total;
+  var totalCredit = blocoA.credit + blocoB.credit;
+  var overall = totalTasks ? Math.round((totalCredit/totalTasks)*100) : 0;
   document.getElementById('ov-num').textContent = overall;
+  document.getElementById('ov-pct-n').textContent = overall;
   setRing('ov-ring', overall);
 
-  // status distribution (combined across both frentes)
-  var totalTasks = t1.total + t2.total;
-  var doneTasks = t1.done + t2.done;
-  var andTasks = t1.andamento + t2.andamento;
-  var pendTasks = t1.pendente + t2.pendente;
+  var doneTasks = blocoA.done + blocoB.done;
+  var andTasks = blocoA.andamento + blocoB.andamento;
+  var pendTasks = blocoA.pendente + blocoB.pendente;
   function pctOf(n){ return totalTasks ? (n/totalTasks*100) : 0; }
   document.getElementById('stack-done').style.width = pctOf(doneTasks) + '%';
   document.getElementById('stack-and').style.width = pctOf(andTasks) + '%';
@@ -523,15 +404,6 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
   document.getElementById('cnt-and').textContent = andTasks;
   document.getElementById('cnt-pend').textContent = pendTasks;
   document.getElementById('cnt-total').textContent = totalTasks;
-
-  // timeline: mark steps before "current" as done
-  document.querySelectorAll('.timeline').forEach(function(tl){
-    var steps = Array.prototype.slice.call(tl.querySelectorAll('.tl-step'));
-    var currentIdx = steps.findIndex(function(s){ return s.classList.contains('current'); });
-    steps.forEach(function(s, i){
-      if (currentIdx !== -1 && i < currentIdx) s.classList.add('done');
-    });
-  });
 })();
 </script>
 
