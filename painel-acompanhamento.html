@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekno Cores — Painel de Acompanhamento do Projeto</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--jc:#1a1aff;--jc-dark:#0d0d1a;--jc-mid:#2d2de0;--jc-light:#eeeeff;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--purple:#7c3aed;--g50:#f8f9ff;--g100:#f0f0f8;--g200:#e0e0ef;--g500:#6b7280;--g700:#374151;--g900:#111827}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-height:100vh;line-height:1.5}
+
+.rh{background:var(--jc-dark);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.rh::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(26,26,255,.15)}
+.rh-logo{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px;position:relative;z-index:1}
+.rh-logo span{color:var(--jc)}
+.rhi{text-align:right;position:relative;z-index:1}
+.rhi .cn{font-size:24px;font-weight:800;color:#fff;margin-bottom:4px}
+.rhi .rt{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.rhi .rd{font-size:12px;margin-top:6px;color:rgba(255,255,255,.35)}
+
+.ph{background:linear-gradient(135deg,var(--jc) 0%,var(--jc-mid) 100%);padding:44px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;overflow:hidden}
+.ph::after{content:'TEKNO CORES';position:absolute;bottom:-20px;right:40px;font-size:90px;font-weight:900;color:rgba(255,255,255,.04);letter-spacing:8px;white-space:nowrap;pointer-events:none}
+.pc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:26px;position:relative;z-index:1}
+.pc .lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.pc .num{font-size:44px;font-weight:900;color:#fff;line-height:1}
+.pc .num em{font-size:18px;font-weight:500;font-style:normal}
+.pc .barwrap{background:rgba(255,255,255,.15);border-radius:20px;height:8px;margin-top:14px;overflow:hidden}
+.pc .bar{height:100%;border-radius:20px;background:#fff}
+.pc .dsc{font-size:12px;color:rgba(255,255,255,.6);margin-top:10px;line-height:1.5}
+
+.mn{max-width:1100px;margin:0 auto;padding:44px 60px}
+
+.status-banner{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:40px}
+.status-banner i{color:#f59e0b;font-size:18px;margin-top:1px}
+.status-banner strong{display:block;font-size:13px;color:var(--g900);margin-bottom:3px}
+.status-banner span{font-size:12.5px;color:var(--g700);line-height:1.6}
+
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:22px;margin-top:44px}
+.sh:first-of-type{margin-top:0}
+.si{width:44px;height:44px;background:var(--jc);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}
+.si.purple{background:var(--purple)}
+.sh h2{font-size:20px;font-weight:800;color:var(--g900)}
+.sh p{font-size:13px;color:var(--g500);margin-top:2px}
+.sh-pct{margin-left:auto;text-align:right;flex-shrink:0}
+.sh-pct .n{font-size:26px;font-weight:900;color:var(--jc)}
+.sh-pct.purple .n{color:var(--purple)}
+.sh-pct .l{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--g500);font-weight:700}
+
+.frente{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,.06);margin-bottom:20px}
+
+.fase{margin-bottom:28px}
+.fase:last-child{margin-bottom:0}
+.fase-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:12px}
+.fase-h .ft{font-size:14px;font-weight:800;color:var(--g900);display:flex;align-items:center;gap:10px}
+.fase-h .fw{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g500);background:var(--g100);padding:4px 10px;border-radius:20px}
+.fase-h .fp{font-size:13px;font-weight:800;color:var(--jc);flex-shrink:0}
+.fase.purple .fp{color:var(--purple)}
+.fase-bar{background:var(--g100);border-radius:20px;height:8px;overflow:hidden;margin-bottom:14px}
+.fase-bar .fill{height:100%;border-radius:20px;background:var(--jc);transition:width .3s}
+.fase.purple .fase-bar .fill{background:var(--purple)}
+
+.tasks{list-style:none;padding:0}
+.tasks li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:13px;color:var(--g700);border-bottom:1px solid var(--g100)}
+.tasks li:last-child{border-bottom:none}
+.tasks li .ic{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:1px}
+.tasks li.done .ic{background:var(--green);color:#fff}
+.tasks li.done span.txt{color:var(--g500);text-decoration:line-through;text-decoration-color:var(--g200)}
+.tasks li.andamento .ic{background:var(--yellow);color:#fff}
+.tasks li.pendente .ic{background:var(--g200);color:var(--g500)}
+.tasks li.andamento span.txt{font-weight:700;color:var(--g900)}
+.tasks li .badge-and{font-size:9px;font-weight:800;text-transform:uppercase;color:#a16207;background:#fef9c3;padding:2px 7px;border-radius:10px;margin-left:6px;flex-shrink:0}
+
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--g200);font-size:11.5px;color:var(--g500)}
+.legend .li{display:flex;align-items:center;gap:6px}
+.legend .ic{width:14px;height:14px;border-radius:50%;display:inline-block}
+.legend .ic.done{background:var(--green)}
+.legend .ic.andamento{background:var(--yellow)}
+.legend .ic.pendente{background:var(--g200)}
+
+.recorrente-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:#ede9fe;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+
+.ft{background:var(--jc-dark);color:rgba(255,255,255,.4);text-align:center;font-size:11px;padding:24px;letter-spacing:1px}
+.ft span{color:var(--jc)}
+
+@media (max-width: 820px){
+  .rh,.ph,.mn{padding:32px 24px}
+  .ph{grid-template-columns:1fr}
+  .ph::after{font-size:48px}
+  .fase-h{flex-wrap:wrap}
+}
+
+.ntop{background:#0d0d1a;padding:12px 60px;display:flex;gap:24px;border-bottom:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.ntop-a{color:rgba(255,255,255,.5);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.ntop-a.active,.ntop-a:hover{color:#fff}
+@media (max-width:820px){.ntop{padding:12px 24px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="ntop">
+  <a href="./index.html" class="ntop-a">Análise · Fase 1</a>
+  <a href="./fase2-concorrentes-indiretos.html" class="ntop-a">Análise · Fase 2</a>
+  <a href="./fase3-grandes-ideais.html" class="ntop-a">Análise · Fase 3</a>
+  <a href="./painel-acompanhamento.html" class="ntop-a active">Painel de Acompanhamento</a>
+</div>
+
+<!-- HEADER -->
+<div class="rh">
+  <div class="rh-logo">JC <span>Tráfego</span> Qualificado</div>
+  <div class="rhi">
+    <div class="cn">Tekno Cores</div>
+    <div class="rt">Painel de Acompanhamento</div>
+    <div class="rd">Atualizado em 13/07/2026</div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<div class="ph">
+  <div class="pc">
+    <div class="lbl">Progresso Geral</div>
+    <div class="num"><span id="ov-num">0</span><em>%</em></div>
+    <div class="barwrap"><div class="bar" id="ov-bar" style="width:0%"></div></div>
+    <div class="dsc">Média das 2 frentes do projeto — site institucional e presença digital.</div>
+  </div>
+  <div class="pc">
+    <div class="lbl">Site + SEO (JC Tráfego)</div>
+    <div class="num"><span id="f1-num">0</span><em>%</em></div>
+    <div class="barwrap"><div class="bar" id="f1-bar" style="width:0%"></div></div>
+    <div class="dsc">3 fases · ~4 semanas · R$ 3.000</div>
+  </div>
+  <div class="pc">
+    <div class="lbl">Branding + Redes (Atrair Clientes)</div>
+    <div class="num"><span id="f2-num">0</span><em>%</em></div>
+    <div class="barwrap"><div class="bar" id="f2-bar" style="width:0%"></div></div>
+    <div class="dsc">Serviços pontuais + pacote mensal recorrente</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="mn">
+
+<div class="status-banner">
+  <i class="fa-solid fa-circle-info"></i>
+  <div>
+    <strong>Status atual: propostas enviadas, aguardando aprovação</strong>
+    <span>As duas propostas comerciais (Site Institucional + SEO e Branding/Presença Digital) foram apresentadas à Tekno Cores em junho/2026. Este painel será atualizado a cada etapa concluída assim que o projeto for aprovado e iniciado.</span>
+  </div>
+</div>
+
+<!-- FRENTE 1: SITE + SEO -->
+<div class="sh">
+  <div class="si"><i class="fa-solid fa-globe"></i></div>
+  <div>
+    <h2>Frente 1 · Site Institucional + SEO</h2>
+    <p>JC Tráfego Qualificado · R$ 3.000 · prazo estimado de 4 semanas após briefing</p>
+  </div>
+  <div class="sh-pct">
+    <div class="n"><span id="f1-pct-n">0</span>%</div>
+    <div class="l">Concluído</div>
+  </div>
+</div>
+
+<div class="frente" id="frente-1">
+
+  <div class="fase" data-fase="Fase 1">
+    <div class="fase-h">
+      <div class="ft">Fase 1 — Briefing e Conteúdo <span class="fw">Semana 1</span></div>
+      <div class="fp"><span class="fp-txt">0 / 7</span></div>
+    </div>
+    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
+    <ul class="tasks">
+      <li class="pendente"><span class="ic"></span><span class="txt">Reunião de alinhamento com a Tekno Cores</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Confirmar aceite da proposta e 1º pagamento (50%)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Coletar textos institucionais (quem somos, diferenciais)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Coletar fotos das 5 lojas (fachada e interior)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Levantar dados completos das lojas (endereço, horário, telefone, WhatsApp)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Definir palavras-chave-alvo (Search + SEO local)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Aprovar arquitetura do site (~8 páginas)</span></li>
+    </ul>
+  </div>
+
+  <div class="fase" data-fase="Fase 2">
+    <div class="fase-h">
+      <div class="ft">Fase 2 — Design e Desenvolvimento <span class="fw">Semanas 2–3</span></div>
+      <div class="fp"><span class="fp-txt">0 / 8</span></div>
+    </div>
+    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
+    <ul class="tasks">
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir Home (posicionamento, marcas-âncora, WhatsApp fixo, seletor de loja)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas de Linhas de Produto (Pintura, Polimento, Abrasivos, Acessórios)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas de Soluções por Segmento (Oficinas/Funilarias, Indústria)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir páginas das 5 Lojas (endereço, mapa, horário, Schema local)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir página de Marcas (Sikkens, Skylack, Sagola)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Construir página Sobre + Contato + FAQ técnico</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Escrever e publicar 2–3 artigos técnicos do blog</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Entregar versão para revisão da Tekno Cores</span></li>
+    </ul>
+  </div>
+
+  <div class="fase" data-fase="Fase 3">
+    <div class="fase-h">
+      <div class="ft">Fase 3 — Ajustes, Publicação e Treinamento <span class="fw">Semana 4</span></div>
+      <div class="fp"><span class="fp-txt">0 / 8</span></div>
+    </div>
+    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
+    <ul class="tasks">
+      <li class="pendente"><span class="ic"></span><span class="txt">Aplicar rodada de ajustes solicitados</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Publicar site no ar (domínio + hospedagem da Tekno)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Configurar Google Search Console</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Configurar GA4 + pixel de tráfego pago</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Configurar SSL, sitemap.xml, robots.txt e dados estruturados</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Orientar integração do Google Perfil da Empresa das 5 lojas</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Treinamento de edição de conteúdo para a equipe Tekno</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Iniciar os 30 dias de suporte incluídos</span></li>
+    </ul>
+  </div>
+
+  <div class="legend">
+    <div class="li"><span class="ic done"></span> Concluído</div>
+    <div class="li"><span class="ic andamento"></span> Em andamento</div>
+    <div class="li"><span class="ic pendente"></span> Pendente</div>
+  </div>
+</div><!-- /frente-1 -->
+
+<!-- FRENTE 2: BRANDING + REDES -->
+<div class="sh">
+  <div class="si purple"><i class="fa-solid fa-palette"></i></div>
+  <div>
+    <h2>Frente 2 · Branding + Presença Digital</h2>
+    <p>Atrair Clientes (parceira) · serviços pontuais + pacote mensal recorrente</p>
+  </div>
+  <div class="sh-pct purple">
+    <div class="n"><span id="f2-pct-n">0</span>%</div>
+    <div class="l">Concluído</div>
+  </div>
+</div>
+
+<div class="frente" id="frente-2">
+
+  <div class="fase purple" data-fase="Bloco A">
+    <div class="fase-h">
+      <div class="ft">Bloco A — Serviços Pontuais <span class="fw">R$ 1.320 · pagamento único</span></div>
+      <div class="fp"><span class="fp-txt">0 / 3</span></div>
+    </div>
+    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
+    <ul class="tasks">
+      <li class="pendente"><span class="ic"></span><span class="txt">Releitura da Logo — tipografia completa + formatos de aplicação (R$ 470)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Produção de fotos profissionais dos produtos (R$ 350)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Criação e organização do Catálogo WhatsApp nas 5 contas (R$ 500)</span></li>
+    </ul>
+  </div>
+
+  <div class="fase purple" data-fase="Bloco B">
+    <div class="fase-h">
+      <div class="ft">Bloco B — Pacote GRS Mensal <span class="fw">R$ 2.150/mês · recorrente</span></div>
+      <div class="fp"><span class="fp-txt">0 / 6</span></div>
+    </div>
+    <span class="recorrente-tag"><i class="fa-solid fa-arrows-rotate"></i> Ciclo Mês 1</span>
+    <div class="fase-bar"><div class="fill" style="width:0%"></div></div>
+    <ul class="tasks">
+      <li class="pendente"><span class="ic"></span><span class="txt">Briefing de conteúdo do mês</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Criação de imagens e formatos específicos para anúncios</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Programação das 8 postagens de feed (2/semana)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Programação dos 12 stories (3/semana)</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Captação dos 2 vídeos mensais</span></li>
+      <li class="pendente"><span class="ic"></span><span class="txt">Edição e publicação dos vídeos</span></li>
+    </ul>
+  </div>
+
+  <div class="legend">
+    <div class="li"><span class="ic done"></span> Concluído</div>
+    <div class="li"><span class="ic andamento"></span> Em andamento</div>
+    <div class="li"><span class="ic pendente"></span> Pendente</div>
+  </div>
+</div><!-- /frente-2 -->
+
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+  © 2026 <span>JC Tráfego Qualificado</span> · Painel de Acompanhamento · Tekno Cores
+</div>
+
+<script>
+/*
+  Como atualizar este painel:
+  Troque a classe do <li> da tarefa concluída de "pendente" para "done"
+  (ou "andamento" se estiver em execução) e salve. Os percentuais,
+  barras e contadores abaixo recalculam sozinhos ao abrir a página —
+  não precisa editar nenhum número manualmente.
+*/
+(function(){
+  function creditOf(li){
+    if (li.classList.contains('done')) return 1;
+    if (li.classList.contains('andamento')) return 0.5;
+    return 0;
+  }
+
+  function calcFase(faseEl){
+    var lis = faseEl.querySelectorAll('.tasks li');
+    var total = lis.length, credit = 0, done = 0;
+    lis.forEach(function(li){
+      credit += creditOf(li);
+      if (li.classList.contains('done')) done++;
+    });
+    var pct = total ? Math.round((credit/total)*100) : 0;
+    var fill = faseEl.querySelector('.fase-bar .fill');
+    if (fill) fill.style.width = pct + '%';
+    var fpTxt = faseEl.querySelector('.fp-txt');
+    if (fpTxt) fpTxt.textContent = done + ' / ' + total;
+    return { total: total, credit: credit };
+  }
+
+  function calcFrente(frenteId, numElId, barElId, pctNElId){
+    var frenteEl = document.getElementById(frenteId);
+    if (!frenteEl) return 0;
+    var fases = frenteEl.querySelectorAll('.fase');
+    var total = 0, credit = 0;
+    fases.forEach(function(faseEl){
+      var r = calcFase(faseEl);
+      total += r.total; credit += r.credit;
+    });
+    var pct = total ? Math.round((credit/total)*100) : 0;
+    var numEl = document.getElementById(numElId);
+    var barEl = document.getElementById(barElId);
+    var pctNEl = document.getElementById(pctNElId);
+    if (numEl) numEl.textContent = pct;
+    if (barEl) barEl.style.width = pct + '%';
+    if (pctNEl) pctNEl.textContent = pct;
+    return pct;
+  }
+
+  var pctF1 = calcFrente('frente-1', 'f1-num', 'f1-bar', 'f1-pct-n');
+  var pctF2 = calcFrente('frente-2', 'f2-num', 'f2-bar', 'f2-pct-n');
+  var overall = Math.round((pctF1 + pctF2) / 2);
+  document.getElementById('ov-num').textContent = overall;
+  document.getElementById('ov-bar').style.width = overall + '%';
+})();
+</script>
+
+</body>
+</html>
